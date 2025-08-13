@@ -1,12 +1,25 @@
-import React from 'react';
-import './App.css';
+import React, { useState } from 'react';
 
-function App() {
+function Counter() {
+  const [count, setCount] = useState(0);
+
+  const increment = () => {
+    setCount(prevCount => prevCount + 1);
+  };
+
+ const decrement = () => {
+  if (count > 0) {
+    setCount(prevCount => prevCount - 1);
+  }
+};
+
   return (
-    <div className="name">
-<h1>My name is Abdur Rehman</h1>
+    <div>
+      <button onClick={decrement}>-</button>
+      <span> You clicked {count} times</span>
+      <button onClick={increment}>+</button>
     </div>
   );
 }
 
-export default App;
+export default Counter;
